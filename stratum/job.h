@@ -45,7 +45,7 @@ struct YAAMP_JOB_TEMPLATE
 	char ntime[32];
 
 	int height;
-	int target;
+	char target[65];
 
 	json_int_t value;
 

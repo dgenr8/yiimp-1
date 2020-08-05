@@ -303,6 +303,8 @@ YAAMP_JOB_TEMPLATE *coind_create_template(YAAMP_COIND *coind)
 
 	const char *bits = json_get_string(json_result, "bits");
 	strcpy(templ->nbits, bits ? bits : "");
+	const char *target = json_get_string(json_result, "target");
+	strcpy(templ->target, target ? target : "");
 	const char *prev = json_get_string(json_result, "previousblockhash");
 	strcpy(templ->prevhash_hex, prev ? prev : "");
 	const char *flags = json_get_string(json_coinbaseaux, "flags");

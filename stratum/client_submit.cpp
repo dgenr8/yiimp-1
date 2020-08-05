@@ -216,7 +216,13 @@ static void client_do_submit(YAAMP_CLIENT *client, YAAMP_JOB *job, YAAMP_JOB_VAL
 		}
 	}
 
-	if(hash_int <= coin_target)
+	bool solved = strcmp(coind->symbol, "CTWO") ?
+		hash_int <= coin_target :
+		// In comparing hex strings, we assume that hexlify and bitcoind values
+		// are the same length and use consistent case.
+		strcmp(submitvalues->hash_be, templ->target) <= 0;
+
+	if(solved)
 	{
 		char count_hex[8] = { 0 };
 		if (templ->txcount <= 252)
