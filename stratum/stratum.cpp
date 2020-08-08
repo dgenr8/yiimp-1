@@ -375,7 +375,7 @@ int main(int argc, char **argv)
 		object_prune(&g_list_share, share_delete);
 		object_prune(&g_list_submit, submit_delete);
 
-		if (!g_exiting) sleep(20);
+		if (!g_exiting) sleep(4);
 	}
 
 	stratumlog("closing database...\n");
