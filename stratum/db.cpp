@@ -86,7 +86,7 @@ void db_query(YAAMP_DB *db, const char *format, ...)
 		if(!res) break;
 		res = mysql_errno(&db->mysql);
 
-		stratumlog("SQL ERROR: %d, %s\n", res, mysql_error(&db->mysql));
+		stratumlog("SQL ERROR: %d, %s, %s\n", res, mysql_error(&db->mysql), buffer);
 		if(res == ER_DUP_ENTRY) break; // rarely seen on new user creation
 		if(res != CR_SERVER_GONE_ERROR && res != CR_SERVER_LOST) exit(1);
 
